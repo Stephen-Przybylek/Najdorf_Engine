@@ -37,7 +37,7 @@ while True:
     DISPLAY.fill(config.background_color)
     draw_board(DISPLAY)
 
-    # piece_list[16].move('B8')
+    # piece_list[16].move('H2')
 
     for piece in piece_list:
         piece.render()

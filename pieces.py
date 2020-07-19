@@ -37,17 +37,15 @@ class Pawn:
             if id % 8 != 0:
                 if config.square_id[id + 1] not in occupied_by_any:
                     moves.append((config.square_id[id + 1]))
-            if id % 8 == 2:
-                if config.square_id[id + 2] not in occupied_by_any and config.square_id[id + 1] not in occupied_by_any:
-                    moves.append(config.square_id[id + 2])
-            if id % 8 != 0:
                 if id > 9:
                     if config.square_id[id - 7] not in occupied_by_white and config.square_id[id - 7] in occupied_by_black:
                         moves.append(config.square_id[id - 7])
-            if id % 8 != 0:
                 if id < 57:
                     if config.square_id[id + 9] not in occupied_by_white and config.square_id[id + 9] in occupied_by_black:
                         moves.append(config.square_id[id + 9])
+            if id % 8 == 2:
+                if config.square_id[id + 2] not in occupied_by_any and config.square_id[id + 1] not in occupied_by_any:
+                    moves.append(config.square_id[id + 2])
             if (en_passant and id % 8 == 5) and id > 9:
                 if config.square_id[id - 7] not in occupied_by_any:
                     moves.append(config.square_id[id - 7])
@@ -58,17 +56,15 @@ class Pawn:
             if id % 8 != 1:
                 if config.square_id[id - 1] not in occupied_by_any:
                     moves.append(config.square_id[id - 1])
-            if id % 8 == 7:
-                if config.square_id[id - 2] not in occupied_by_any and config.square_id[id - 1] not in occupied_by_any:
-                    moves.append(config.square_id[id - 2])
-            if id % 8 != 1:
                 if id > 9:
                     if config.square_id[id - 9] not in occupied_by_black and config.square_id[id - 9] in occupied_by_white:
                         moves.append(config.square_id[id - 9])
-            if id % 8 != 1:
                 if id < 57:
                     if config.square_id[id + 7] not in occupied_by_black and config.square_id[id + 7] in occupied_by_white:
                         moves.append(config.square_id[id + 7])
+            if id % 8 == 7:
+                if config.square_id[id - 2] not in occupied_by_any and config.square_id[id - 1] not in occupied_by_any:
+                    moves.append(config.square_id[id - 2])
             if (en_passant and id % 8 == 4) and id > 9:
                 if config.square_id[id - 9] not in occupied_by_any:
                     moves.append(config.square_id[id - 9])
