@@ -32,10 +32,16 @@ DISPLAY = pygame.display.set_mode((config.board_size, config.board_size))
 piece_list, white_piece_list, black_piece_list = pieces.initialize_pieces(
     DISPLAY)
 
+print(occupied_by_white)
+print('l')
+print(occupied_by_black)
+
 
 while True:
     DISPLAY.fill(config.background_color)
     draw_board(DISPLAY)
+
+    piece_list[18].move('C3')
 
     for piece in piece_list:
         piece.render()
@@ -44,5 +50,11 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.MOUSEBUTTONUP:
+            pos = pygame.mouse.get_pos()
+            # print(pos)
+            m = piece_list[18].valid_moves(
+                piece_list, white_piece_list, black_piece_list)
+            print(m)
 
     pygame.display.update()
