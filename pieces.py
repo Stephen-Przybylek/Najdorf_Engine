@@ -32,97 +32,49 @@ class Pawn:
         occupied_by_black = [s.square for s in bpl]
         occupied_by_any = occupied_by_white + occupied_by_black
         id = config.square_id_reverse[self.square]
-        occupied = False
-        pc = None
         moves = []
         if self.color == 'WHITE':
-            if not (id % 8 == 0):
+            if id % 8 != 0:
                 if config.square_id[id + 1] not in occupied_by_any:
                     moves.append((config.square_id[id + 1]))
             if id % 8 == 2:
-                for p in pl:
-                    if (p.square == config.square_id[id + 2] or p.square == config.square_id[id + 1]):
-                        occupied = True
-                if not occupied:
+                if config.square_id[id + 2] not in occupied_by_any and config.square_id[id + 1] not in occupied_by_any:
                     moves.append(config.square_id[id + 2])
-            occupied = False
             if id % 8 != 0:
                 if id > 9:
-                    for p in pl:
-                        if (p.square == config.square_id[id - 7]):
-                            occupied = True
-                            pc = p.color
-                    if occupied and pc == 'BLACK':
+                    if config.square_id[id - 7] not in occupied_by_white and config.square_id[id - 7] in occupied_by_black:
                         moves.append(config.square_id[id - 7])
-            occupied = False
-            pc = None
             if id % 8 != 0:
                 if id < 57:
-                    for p in pl:
-                        if (p.square == config.square_id[id + 9]):
-                            occupied = True
-                            pc = p.color
-                    if occupied and pc == 'BLACK':
+                    if config.square_id[id + 9] not in occupied_by_white and config.square_id[id + 9] in occupied_by_black:
                         moves.append(config.square_id[id + 9])
             if (en_passant and id % 8 == 5) and id > 9:
-                for p in pl:
-                    if (p.square == config.square_id[id - 7]):
-                        occupied = True
-                if not occupied:
+                if config.square_id[id - 7] not in occupied_by_any:
                     moves.append(config.square_id[id - 7])
-            occupied = False
             if (en_passant and id % 8 == 5) and id < 57:
-                for p in pl:
-                    if (p.square == config.square_id[id + 9]):
-                        occupied = True
-                if not occupied:
+                if config.square_id[id + 9] not in occupied_by_any:
                     moves.append(config.square_id[id + 9])
-        # if self.color == 'BLACK':
-        #     if not (id % 8 == 1):
-        #         for p in pl:
-        #             if (p.square == config.square_id[id - 1]):
-        #                 occupied = True
-        #         if not occupied:
-        #             moves.append(config.square_id[id - 1])
-        #     occupied = False
-        #     if id % 8 == 7:
-        #         for p in pl:
-        #             if (p.square == config.square_id[id - 2] or p.square == config.square_id[id - 1]):
-        #                 occupied = True
-        #         if not occupied:
-        #             moves.append(config.square_id[id - 2])
-        #     occupied = False
-        #     if id % 8 != 1:
-        #         if id > 9:
-        #             for p in pl:
-        #                 if (p.square == config.square_id[id - 9]):
-        #                     occupied = True
-        #                     pc = p.color
-        #             if occupied and pc == 'WHITE':
-        #                 moves.append(config.square_id[id - 9])
-        #     occupied = False
-        #     pc = None
-        #     if id % 8 != 1:
-        #         if id < 57:
-        #             for p in pl:
-        #                 if (p.square == config.square_id[id + 7]):
-        #                     occupied = True
-        #                     pc = p.color
-        #             if occupied and pc == 'WHITE':
-        #                 moves.append(config.square_id[id + 7])
-        #     if (en_passant and id % 8 == 4) and id > 9:
-        #         for p in pl:
-        #             if (p.square == config.square_id[id - 9]):
-        #                 occupied = True
-        #         if not occupied:
-        #             moves.append(config.square_id[id - 9])
-        #     occupied = False
-        #     if (en_passant and id % 8 == 4) and id < 57:
-        #         for p in pl:
-        #             if (p.square == config.square_id[id + 7]):
-        #                 occupied = True
-        #         if not occupied:
-        #             moves.append(config.square_id[id + 7])
+        if self.color == 'BLACK':
+            if id % 8 != 1:
+                if config.square_id[id - 1] not in occupied_by_any:
+                    moves.append(config.square_id[id - 1])
+            if id % 8 == 7:
+                if config.square_id[id - 2] not in occupied_by_any and config.square_id[id - 1] not in occupied_by_any:
+                    moves.append(config.square_id[id - 2])
+            if id % 8 != 1:
+                if id > 9:
+                    if config.square_id[id - 9] not in occupied_by_black and config.square_id[id - 9] in occupied_by_white:
+                        moves.append(config.square_id[id - 9])
+            if id % 8 != 1:
+                if id < 57:
+                    if config.square_id[id + 7] not in occupied_by_black and config.square_id[id + 7] in occupied_by_white:
+                        moves.append(config.square_id[id + 7])
+            if (en_passant and id % 8 == 4) and id > 9:
+                if config.square_id[id - 9] not in occupied_by_any:
+                    moves.append(config.square_id[id - 9])
+            if (en_passant and id % 8 == 4) and id < 57:
+                if config.square_id[id + 7] not in occupied_by_any:
+                    moves.append(config.square_id[id + 7])
 
         return moves
 
