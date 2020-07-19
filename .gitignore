@@ -1,3 +1,6 @@
 .vscode
 najdorf
 .DS_Store
+__pycache__/board.cpython-38.pyc
+__pycache__/config.cpython-38.pyc
+__pycache__/pieces.cpython-38.pyc
