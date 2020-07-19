@@ -7,18 +7,19 @@ class Pawn:
         self.disp = disp
         self.square = square
         self.color = color
+        self.font = pygame.font.SysFont('Comic Sans MS', 30)
 
-    def render(self, font):
+    def render(self):
         if self.color == 'WHITE':
-            box_clr = (255, 255, 255)
-            txt_clr = (0, 0, 0)
+            box_clr = config.WHITE
+            txt_clr = config.BLACK
         if self.color == 'BLACK':
-            box_clr = (0, 0, 0)
-            txt_clr = (255, 255, 255)
+            box_clr = config.BLACK
+            txt_clr = config.WHITE
         pygame.draw.rect(self.disp, box_clr,
                          (config.square_positions[self.square][0] + config.central_offset, config.square_positions[self.square]
                           [1] + config.central_offset, config.square_size/2, config.square_size/2))
-        textsurface = font.render('P', False, txt_clr)
+        textsurface = self.font.render('P', False, txt_clr)
         self.disp.blit(textsurface, (config.square_positions[self.square][0] + config.central_offset + 15, config.square_positions[self.square]
                                      [1] + config.central_offset))
 
@@ -28,18 +29,19 @@ class Rook:
         self.disp = disp
         self.square = square
         self.color = color
+        self.font = pygame.font.SysFont('Comic Sans MS', 30)
 
-    def render(self, font):
+    def render(self):
         if self.color == 'WHITE':
-            box_clr = (255, 255, 255)
-            txt_clr = (0, 0, 0)
+            box_clr = config.WHITE
+            txt_clr = config.BLACK
         if self.color == 'BLACK':
-            box_clr = (0, 0, 0)
-            txt_clr = (255, 255, 255)
+            box_clr = config.BLACK
+            txt_clr = config.WHITE
         pygame.draw.rect(self.disp, box_clr,
                          (config.square_positions[self.square][0] + config.central_offset, config.square_positions[self.square]
                           [1] + config.central_offset, config.square_size/2, config.square_size/2))
-        textsurface = font.render('R', False, txt_clr)
+        textsurface = self.font.render('R', False, txt_clr)
         self.disp.blit(textsurface, (config.square_positions[self.square][0] + config.central_offset + 15, config.square_positions[self.square]
                                      [1] + config.central_offset))
 
@@ -49,18 +51,19 @@ class Knight:
         self.disp = disp
         self.square = square
         self.color = color
+        self.font = pygame.font.SysFont('Comic Sans MS', 30)
 
-    def render(self, font):
+    def render(self):
         if self.color == 'WHITE':
-            box_clr = (255, 255, 255)
-            txt_clr = (0, 0, 0)
+            box_clr = config.WHITE
+            txt_clr = config.BLACK
         if self.color == 'BLACK':
-            box_clr = (0, 0, 0)
-            txt_clr = (255, 255, 255)
+            box_clr = config.BLACK
+            txt_clr = config.WHITE
         pygame.draw.rect(self.disp, box_clr,
                          (config.square_positions[self.square][0] + config.central_offset, config.square_positions[self.square]
                           [1] + config.central_offset, config.square_size/2, config.square_size/2))
-        textsurface = font.render('N', False, txt_clr)
+        textsurface = self.font.render('N', False, txt_clr)
         self.disp.blit(textsurface, (config.square_positions[self.square][0] + config.central_offset + 15, config.square_positions[self.square]
                                      [1] + config.central_offset))
 
@@ -70,18 +73,19 @@ class Bishop:
         self.disp = disp
         self.square = square
         self.color = color
+        self.font = pygame.font.SysFont('Comic Sans MS', 30)
 
-    def render(self, font):
+    def render(self):
         if self.color == 'WHITE':
-            box_clr = (255, 255, 255)
-            txt_clr = (0, 0, 0)
+            box_clr = config.WHITE
+            txt_clr = config.BLACK
         if self.color == 'BLACK':
-            box_clr = (0, 0, 0)
-            txt_clr = (255, 255, 255)
+            box_clr = config.BLACK
+            txt_clr = config.WHITE
         pygame.draw.rect(self.disp, box_clr,
                          (config.square_positions[self.square][0] + config.central_offset, config.square_positions[self.square]
                           [1] + config.central_offset, config.square_size/2, config.square_size/2))
-        textsurface = font.render('B', False, txt_clr)
+        textsurface = self.font.render('B', False, txt_clr)
         self.disp.blit(textsurface, (config.square_positions[self.square][0] + config.central_offset + 15, config.square_positions[self.square]
                                      [1] + config.central_offset))
 
@@ -91,18 +95,19 @@ class Queen:
         self.disp = disp
         self.square = square
         self.color = color
+        self.font = pygame.font.SysFont('Comic Sans MS', 30)
 
-    def render(self, font):
+    def render(self):
         if self.color == 'WHITE':
-            box_clr = (255, 255, 255)
-            txt_clr = (0, 0, 0)
+            box_clr = config.WHITE
+            txt_clr = config.BLACK
         if self.color == 'BLACK':
-            box_clr = (0, 0, 0)
-            txt_clr = (255, 255, 255)
+            box_clr = config.BLACK
+            txt_clr = config.WHITE
         pygame.draw.rect(self.disp, box_clr,
                          (config.square_positions[self.square][0] + config.central_offset, config.square_positions[self.square]
                           [1] + config.central_offset, config.square_size/2, config.square_size/2))
-        textsurface = font.render('Q', False, txt_clr)
+        textsurface = self.font.render('Q', False, txt_clr)
         self.disp.blit(textsurface, (config.square_positions[self.square][0] + config.central_offset + 15, config.square_positions[self.square]
                                      [1] + config.central_offset))
 
@@ -112,18 +117,19 @@ class King:
         self.disp = disp
         self.square = square
         self.color = color
+        self.font = pygame.font.SysFont('Comic Sans MS', 30)
 
-    def render(self, font):
+    def render(self):
         if self.color == 'WHITE':
-            box_clr = (255, 255, 255)
-            txt_clr = (0, 0, 0)
+            box_clr = config.WHITE
+            txt_clr = config.BLACK
         if self.color == 'BLACK':
-            box_clr = (0, 0, 0)
-            txt_clr = (255, 255, 255)
+            box_clr = config.BLACK
+            txt_clr = config.WHITE
         pygame.draw.rect(self.disp, box_clr,
                          (config.square_positions[self.square][0] + config.central_offset, config.square_positions[self.square]
                           [1] + config.central_offset, config.square_size/2, config.square_size/2))
-        textsurface = font.render('K', False, txt_clr)
+        textsurface = self.font.render('K', False, txt_clr)
         self.disp.blit(textsurface, (config.square_positions[self.square][0] + config.central_offset + 15, config.square_positions[self.square]
                                      [1] + config.central_offset))
 
