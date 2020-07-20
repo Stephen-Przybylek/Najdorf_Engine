@@ -36,7 +36,7 @@ piece_list, white_piece_list, black_piece_list = pieces.initialize_pieces(
 while True:
     DISPLAY.fill(config.background_color)
     draw_board(DISPLAY)
-    piece_list[29].move('H1')
+    # piece_list[14].move('C4')
 
     for piece in piece_list:
         piece.render()
@@ -48,7 +48,7 @@ while True:
         if event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
             # print(pos)
-            m = piece_list[29].valid_moves(
+            m = piece_list[14].valid_moves(
                 piece_list, white_piece_list, black_piece_list)
             print(m)
 
