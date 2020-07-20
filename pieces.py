@@ -96,15 +96,98 @@ class Rook:
         self.disp.blit(textsurface, (config.square_positions[self.square][0] + config.central_offset + 15, config.square_positions[self.square]
                                      [1] + config.central_offset))
 
-        def move(self, square):
-            self.square = square
+    def move(self, square):
+        self.square = square
 
-        def valid_moves(self, pl, en_passant=False):
-            id = config.square_id_reverse[self.square]
-            occupied = False
-            pc = None
-            moves = []
-            return moves
+    def valid_moves(self, pl, wpl, bpl, en_passant=False):
+        occupied_by_white = [s.square for s in wpl]
+        occupied_by_black = [s.square for s in bpl]
+        occupied_by_any = occupied_by_white + occupied_by_black
+        id = config.square_id_reverse[self.square]
+        moves = []
+        if self.color == 'WHITE':
+            for i in range(1, 9):
+                if (((id + i) % 8) == 1):
+                    break
+                if config.square_id[id + i] not in occupied_by_any:
+                    moves.append(config.square_id[id + i])
+                elif config.square_id[id + i] in occupied_by_black:
+                    moves.append(config.square_id[id + i])
+                    break
+                else:
+                    break
+            for i in range(1, 9):
+                if (((id - i) % 8) == 0):
+                    break
+                if config.square_id[id - i] not in occupied_by_any:
+                    moves.append(config.square_id[id - i])
+                elif config.square_id[id - i] in occupied_by_black:
+                    moves.append(config.square_id[id - i])
+                    break
+                else:
+                    break
+            for i in range(1, 9):
+                if ((id + 8*i) > 65):
+                    break
+                if config.square_id[id + i*8] not in occupied_by_any:
+                    moves.append(config.square_id[id + i*8])
+                elif config.square_id[id + i*8] in occupied_by_black:
+                    moves.append(config.square_id[id + i*8])
+                    break
+                else:
+                    break
+            for i in range(1, 9):
+                if ((id - i*8) < 1):
+                    break
+                if config.square_id[id - i*8] not in occupied_by_any:
+                    moves.append(config.square_id[id - i*8])
+                elif config.square_id[id - i*8] in occupied_by_black:
+                    moves.append(config.square_id[id - i*8])
+                    break
+                else:
+                    break
+        if self.color == 'BLACK':
+            for i in range(1, 9):
+                if (((id + i) % 8) == 1):
+                    break
+                if config.square_id[id + i] not in occupied_by_any:
+                    moves.append(config.square_id[id + i])
+                elif config.square_id[id + i] in occupied_by_white:
+                    moves.append(config.square_id[id + i])
+                    break
+                else:
+                    break
+            for i in range(1, 9):
+                if (((id - i) % 8) == 0):
+                    break
+                if config.square_id[id - i] not in occupied_by_any:
+                    moves.append(config.square_id[id - i])
+                elif config.square_id[id - i] in occupied_by_white:
+                    moves.append(config.square_id[id - i])
+                    break
+                else:
+                    break
+            for i in range(1, 9):
+                if ((id + 8*i) > 65):
+                    break
+                if config.square_id[id + i*8] not in occupied_by_any:
+                    moves.append(config.square_id[id + i*8])
+                elif config.square_id[id + i*8] in occupied_by_white:
+                    moves.append(config.square_id[id + i*8])
+                    break
+                else:
+                    break
+            for i in range(1, 9):
+                if ((id - i*8) < 1):
+                    break
+                if config.square_id[id - i*8] not in occupied_by_any:
+                    moves.append(config.square_id[id - i*8])
+                elif config.square_id[id - i*8] in occupied_by_white:
+                    moves.append(config.square_id[id - i*8])
+                    break
+                else:
+                    break
+        return moves
 
 
 class Knight:
