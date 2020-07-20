@@ -595,6 +595,33 @@ class King:
     def move(self, square):
         self.square = square
 
+    def valid_moves(self, pl, wpl, bpl, en_passant=False):
+        occupied_by_white = [s.square for s in wpl]
+        occupied_by_black = [s.square for s in bpl]
+        occupied_by_any = occupied_by_white + occupied_by_black
+        id = config.square_id_reverse[self.square]
+        moves = []
+        if self.color == 'WHITE':
+            if id > 8 and config.square_id[id - 8] not in occupied_by_white:
+                moves.append(config.square_id[id - 8])
+            if id > 8 and (id % 8 != 1) and config.square_id[id - 9] not in occupied_by_white:
+                moves.append(config.square_id[id - 9])
+            if id > 8 and (id % 8 != 0) and config.square_id[id - 7] not in occupied_by_white:
+                moves.append(config.square_id[id - 7])
+            if id < 57 and config.square_id[id + 8] not in occupied_by_white:
+                moves.append(config.square_id[id + 8])
+            if id < 57 and (id % 8 != 0) and config.square_id[id + 9] not in occupied_by_white:
+                moves.append(config.square_id[id + 9])
+            if id < 57 and (id % 8 != 1) and config.square_id[id + 7] not in occupied_by_white:
+                moves.append(config.square_id[id + 7])
+            if id % 8 != 1 and config.square_id[id - 1] not in occupied_by_white:
+                moves.append(config.square_id[id - 1])
+            if id % 8 != 0 and config.square_id[id + 1] not in occupied_by_white:
+                moves.append(config.square_id[id + 1])
+        if self.color == 'BLACK':
+            pass
+        return moves
+
 
 def initialize_pieces(disp):
     wp1 = Pawn(disp, 'A2', 'WHITE')
