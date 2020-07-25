@@ -38,10 +38,10 @@ class Pawn:
                 if config.square_id[id + 1] not in occupied_by_any:
                     moves.append((config.square_id[id + 1]))
                 if id > 9:
-                    if config.square_id[id - 7] not in occupied_by_white and config.square_id[id - 7] in occupied_by_black:
+                    if config.square_id[id - 7] not in occupied_by_white and config.square_id[id - 7] in occupied_by_black and type(get_piece(config.square_id[id - 7], bpl)) is not King:
                         moves.append(config.square_id[id - 7])
                 if id < 57:
-                    if config.square_id[id + 9] not in occupied_by_white and config.square_id[id + 9] in occupied_by_black:
+                    if config.square_id[id + 9] not in occupied_by_white and config.square_id[id + 9] in occupied_by_black and type(get_piece(config.square_id[id + 9], bpl)) is not King:
                         moves.append(config.square_id[id + 9])
             if id % 8 == 2:
                 if config.square_id[id + 2] not in occupied_by_any and config.square_id[id + 1] not in occupied_by_any:
@@ -57,10 +57,10 @@ class Pawn:
                 if config.square_id[id - 1] not in occupied_by_any:
                     moves.append(config.square_id[id - 1])
                 if id > 9:
-                    if config.square_id[id - 9] not in occupied_by_black and config.square_id[id - 9] in occupied_by_white:
+                    if config.square_id[id - 9] not in occupied_by_black and config.square_id[id - 9] in occupied_by_white and type(get_piece(config.square_id[id - 9], wpl)) is not King:
                         moves.append(config.square_id[id - 9])
                 if id < 57:
-                    if config.square_id[id + 7] not in occupied_by_black and config.square_id[id + 7] in occupied_by_white:
+                    if config.square_id[id + 7] not in occupied_by_black and config.square_id[id + 7] in occupied_by_white and type(get_piece(config.square_id[id + 7], wpl)) is not King:
                         moves.append(config.square_id[id + 7])
             if id % 8 == 7:
                 if config.square_id[id - 2] not in occupied_by_any and config.square_id[id - 1] not in occupied_by_any:
@@ -111,7 +111,7 @@ class Rook:
                     break
                 if config.square_id[id + i] not in occupied_by_any:
                     moves.append(config.square_id[id + i])
-                elif config.square_id[id + i] in occupied_by_black:
+                elif config.square_id[id + i] in occupied_by_black and type(get_piece(config.square_id[id + i], bpl)) is not King:
                     moves.append(config.square_id[id + i])
                     break
                 else:
@@ -121,7 +121,7 @@ class Rook:
                     break
                 if config.square_id[id - i] not in occupied_by_any:
                     moves.append(config.square_id[id - i])
-                elif config.square_id[id - i] in occupied_by_black:
+                elif config.square_id[id - i] in occupied_by_black and type(get_piece(config.square_id[id - i], bpl)) is not King:
                     moves.append(config.square_id[id - i])
                     break
                 else:
@@ -131,7 +131,7 @@ class Rook:
                     break
                 if config.square_id[id + i*8] not in occupied_by_any:
                     moves.append(config.square_id[id + i*8])
-                elif config.square_id[id + i*8] in occupied_by_black:
+                elif config.square_id[id + i*8] in occupied_by_black and type(get_piece(config.square_id[id + i*8], bpl)) is not King:
                     moves.append(config.square_id[id + i*8])
                     break
                 else:
@@ -141,7 +141,7 @@ class Rook:
                     break
                 if config.square_id[id - i*8] not in occupied_by_any:
                     moves.append(config.square_id[id - i*8])
-                elif config.square_id[id - i*8] in occupied_by_black:
+                elif config.square_id[id - i*8] in occupied_by_black and type(get_piece(config.square_id[id - i*8], bpl)) is not King:
                     moves.append(config.square_id[id - i*8])
                     break
                 else:
@@ -152,7 +152,7 @@ class Rook:
                     break
                 if config.square_id[id + i] not in occupied_by_any:
                     moves.append(config.square_id[id + i])
-                elif config.square_id[id + i] in occupied_by_white:
+                elif config.square_id[id + i] in occupied_by_white and type(get_piece(config.square_id[id + i], wpl)) is not King:
                     moves.append(config.square_id[id + i])
                     break
                 else:
@@ -162,7 +162,7 @@ class Rook:
                     break
                 if config.square_id[id - i] not in occupied_by_any:
                     moves.append(config.square_id[id - i])
-                elif config.square_id[id - i] in occupied_by_white:
+                elif config.square_id[id - i] in occupied_by_white and type(get_piece(config.square_id[id - i], wpl)) is not King:
                     moves.append(config.square_id[id - i])
                     break
                 else:
@@ -172,7 +172,7 @@ class Rook:
                     break
                 if config.square_id[id + i*8] not in occupied_by_any:
                     moves.append(config.square_id[id + i*8])
-                elif config.square_id[id + i*8] in occupied_by_white:
+                elif config.square_id[id + i*8] in occupied_by_white and type(get_piece(config.square_id[id + i*8], wpl)) is not King:
                     moves.append(config.square_id[id + i*8])
                     break
                 else:
@@ -182,7 +182,7 @@ class Rook:
                     break
                 if config.square_id[id - i*8] not in occupied_by_any:
                     moves.append(config.square_id[id - i*8])
-                elif config.square_id[id - i*8] in occupied_by_white:
+                elif config.square_id[id - i*8] in occupied_by_white and type(get_piece(config.square_id[id - i*8], wpl)) is not King:
                     moves.append(config.square_id[id - i*8])
                     break
                 else:
@@ -222,38 +222,86 @@ class Knight:
         moves = []
         if self.color == 'WHITE':
             if ((id > 16) and ((id % 8) != 1)) and config.square_id[id - 17] not in occupied_by_white:
-                moves.append(config.square_id[id - 17])
+                if config.square_id[id - 17] in occupied_by_black and type(get_piece(config.square_id[id - 17], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 17])
             if ((id > 16) and ((id % 8) != 0)) and config.square_id[id - 15] not in occupied_by_white:
-                moves.append(config.square_id[id - 15])
+                if config.square_id[id - 15] in occupied_by_black and type(get_piece(config.square_id[id - 15], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 15])
             if ((id > 8) and (((id % 8) != 2) and ((id % 8) != 1))) and config.square_id[id - 10] not in occupied_by_white:
-                moves.append(config.square_id[id - 10])
+                if config.square_id[id - 10] in occupied_by_black and type(get_piece(config.square_id[id - 10], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 10])
             if ((id > 8) and (((id % 8) != 0) and ((id % 8) != 7))) and config.square_id[id - 6] not in occupied_by_white:
-                moves.append(config.square_id[id - 6])
+                if config.square_id[id - 6] in occupied_by_black and type(get_piece(config.square_id[id - 6], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 6])
             if ((id < 57) and (((id % 8) != 1) and ((id % 8) != 2))) and config.square_id[id + 6] not in occupied_by_white:
-                moves.append(config.square_id[id + 6])
+                if config.square_id[id + 6] in occupied_by_black and type(get_piece(config.square_id[id + 6], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 6])
             if ((id < 57) and (((id % 8) != 0) and ((id % 8) != 7))) and config.square_id[id + 10] not in occupied_by_white:
-                moves.append(config.square_id[id + 10])
+                if config.square_id[id + 10] in occupied_by_black and type(get_piece(config.square_id[id + 10], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 10])
             if id < 49 and (id % 8) != 1 and config.square_id[id + 15] not in occupied_by_white:
-                moves.append(config.square_id[id + 15])
+                if config.square_id[id + 15] in occupied_by_black and type(get_piece(config.square_id[id + 15], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 15])
             if ((id < 49) and ((id % 8) != 0)) and config.square_id[id + 17] not in occupied_by_white:
-                moves.append(config.square_id[id + 17])
+                if config.square_id[id + 17] in occupied_by_black and type(get_piece(config.square_id[id + 17], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 17])
         if self.color == 'BLACK':
             if ((id > 16) and ((id % 8) != 1)) and config.square_id[id - 17] not in occupied_by_black:
-                moves.append(config.square_id[id - 17])
+                if config.square_id[id - 17] in occupied_by_white and type(get_piece(config.square_id[id - 17], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 17])
             if ((id > 16) and ((id % 8) != 0)) and config.square_id[id - 15] not in occupied_by_black:
-                moves.append(config.square_id[id - 15])
+                if config.square_id[id - 15] in occupied_by_white and type(get_piece(config.square_id[id - 15], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 15])
             if ((id > 8) and (((id % 8) != 2) and ((id % 8) != 1))) and config.square_id[id - 10] not in occupied_by_black:
-                moves.append(config.square_id[id - 10])
+                if config.square_id[id - 10] in occupied_by_white and type(get_piece(config.square_id[id - 10], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 10])
             if ((id > 8) and (((id % 8) != 0) and ((id % 8) != 7))) and config.square_id[id - 6] not in occupied_by_black:
-                moves.append(config.square_id[id - 6])
+                if config.square_id[id - 6] in occupied_by_white and type(get_piece(config.square_id[id - 6], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 6])
             if ((id < 57) and (((id % 8) != 1) and ((id % 8) != 2))) and config.square_id[id + 6] not in occupied_by_black:
-                moves.append(config.square_id[id + 6])
+                if config.square_id[id + 6] in occupied_by_white and type(get_piece(config.square_id[id + 6], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 6])
             if ((id < 57) and (((id % 8) != 0) and ((id % 8) != 7))) and config.square_id[id + 10] not in occupied_by_black:
-                moves.append(config.square_id[id + 10])
+                if config.square_id[id + 10] in occupied_by_white and type(get_piece(config.square_id[id + 10], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 10])
             if id < 49 and (id % 8) != 1 and config.square_id[id + 15] not in occupied_by_black:
-                moves.append(config.square_id[id + 15])
+                if config.square_id[id + 15] in occupied_by_white and type(get_piece(config.square_id[id + 15], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 15])
             if ((id < 49) and ((id % 8) != 0)) and config.square_id[id + 17] not in occupied_by_black:
-                moves.append(config.square_id[id + 17])
+                if config.square_id[id + 17] in occupied_by_white and type(get_piece(config.square_id[id + 17], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 17])
         return moves
 
 
@@ -293,7 +341,7 @@ class Bishop:
                     break
                 if config.square_id[id + i*9] not in occupied_by_any:
                     moves.append(config.square_id[id + i*9])
-                elif config.square_id[id + i*9] in occupied_by_black:
+                elif config.square_id[id + i*9] in occupied_by_black and type(get_piece(config.square_id[id + i*9], bpl)) is not King:
                     moves.append(config.square_id[id + i*9])
                     break
                 else:
@@ -303,7 +351,7 @@ class Bishop:
                     break
                 if config.square_id[id - i*9] not in occupied_by_any:
                     moves.append(config.square_id[id - i*9])
-                elif config.square_id[id - i*9] in occupied_by_black:
+                elif config.square_id[id - i*9] in occupied_by_black and type(get_piece(config.square_id[id - i*9], bpl)) is not King:
                     moves.append(config.square_id[id - i*9])
                     break
                 else:
@@ -313,7 +361,7 @@ class Bishop:
                     break
                 if config.square_id[id + i*7] not in occupied_by_any:
                     moves.append(config.square_id[id + i*7])
-                elif config.square_id[id + i*7] in occupied_by_black:
+                elif config.square_id[id + i*7] in occupied_by_black and type(get_piece(config.square_id[id + i*7], bpl)) is not King:
                     moves.append(config.square_id[id + i*7])
                     break
                 else:
@@ -323,7 +371,7 @@ class Bishop:
                     break
                 if config.square_id[id - i*7] not in occupied_by_any:
                     moves.append(config.square_id[id - i*7])
-                elif config.square_id[id - i*7] in occupied_by_black:
+                elif config.square_id[id - i*7] in occupied_by_black and type(get_piece(config.square_id[id - i*7], bpl)) is not King:
                     moves.append(config.square_id[id - i*7])
                     break
                 else:
@@ -335,7 +383,7 @@ class Bishop:
                     break
                 if config.square_id[id + i*9] not in occupied_by_any:
                     moves.append(config.square_id[id + i*9])
-                elif config.square_id[id + i*9] in occupied_by_white:
+                elif config.square_id[id + i*9] in occupied_by_white and type(get_piece(config.square_id[id + i*9], wpl)) is not King:
                     moves.append(config.square_id[id + i*9])
                     break
                 else:
@@ -345,7 +393,7 @@ class Bishop:
                     break
                 if config.square_id[id - i*9] not in occupied_by_any:
                     moves.append(config.square_id[id - i*9])
-                elif config.square_id[id - i*9] in occupied_by_white:
+                elif config.square_id[id - i*9] in occupied_by_white and type(get_piece(config.square_id[id - i*9], wpl)) is not King:
                     moves.append(config.square_id[id - i*9])
                     break
                 else:
@@ -355,7 +403,7 @@ class Bishop:
                     break
                 if config.square_id[id + i*7] not in occupied_by_any:
                     moves.append(config.square_id[id + i*7])
-                elif config.square_id[id + i*7] in occupied_by_white:
+                elif config.square_id[id + i*7] in occupied_by_white and type(get_piece(config.square_id[id + i*7], wpl)) is not King:
                     moves.append(config.square_id[id + i*7])
                     break
                 else:
@@ -365,7 +413,7 @@ class Bishop:
                     break
                 if config.square_id[id - i*7] not in occupied_by_any:
                     moves.append(config.square_id[id - i*7])
-                elif config.square_id[id - i*7] in occupied_by_white:
+                elif config.square_id[id - i*7] in occupied_by_white and type(get_piece(config.square_id[id - i*7], wpl)) is not King:
                     moves.append(config.square_id[id - i*7])
                     break
                 else:
@@ -409,7 +457,7 @@ class Queen:
                     break
                 if config.square_id[id + i] not in occupied_by_any:
                     moves.append(config.square_id[id + i])
-                elif config.square_id[id + i] in occupied_by_black:
+                elif config.square_id[id + i] in occupied_by_black and type(get_piece(config.square_id[id + i], bpl)) is not King:
                     moves.append(config.square_id[id + i])
                     break
                 else:
@@ -419,7 +467,7 @@ class Queen:
                     break
                 if config.square_id[id - i] not in occupied_by_any:
                     moves.append(config.square_id[id - i])
-                elif config.square_id[id - i] in occupied_by_black:
+                elif config.square_id[id - i] in occupied_by_black and type(get_piece(config.square_id[id - i], bpl)) is not King:
                     moves.append(config.square_id[id - i])
                     break
                 else:
@@ -429,7 +477,7 @@ class Queen:
                     break
                 if config.square_id[id + i*8] not in occupied_by_any:
                     moves.append(config.square_id[id + i*8])
-                elif config.square_id[id + i*8] in occupied_by_black:
+                elif config.square_id[id + i*8] in occupied_by_black and type(get_piece(config.square_id[id + i*8], bpl)) is not King:
                     moves.append(config.square_id[id + i*8])
                     break
                 else:
@@ -439,7 +487,7 @@ class Queen:
                     break
                 if config.square_id[id - i*8] not in occupied_by_any:
                     moves.append(config.square_id[id - i*8])
-                elif config.square_id[id - i*8] in occupied_by_black:
+                elif config.square_id[id - i*8] in occupied_by_black and type(get_piece(config.square_id[id - i*8], bpl)) is not King:
                     moves.append(config.square_id[id - i*8])
                     break
                 else:
@@ -450,7 +498,7 @@ class Queen:
                     break
                 if config.square_id[id + i] not in occupied_by_any:
                     moves.append(config.square_id[id + i])
-                elif config.square_id[id + i] in occupied_by_white:
+                elif config.square_id[id + i] in occupied_by_white and type(get_piece(config.square_id[id + i], wpl)) is not King:
                     moves.append(config.square_id[id + i])
                     break
                 else:
@@ -460,7 +508,7 @@ class Queen:
                     break
                 if config.square_id[id - i] not in occupied_by_any:
                     moves.append(config.square_id[id - i])
-                elif config.square_id[id - i] in occupied_by_white:
+                elif config.square_id[id - i] in occupied_by_white and type(get_piece(config.square_id[id - i], wpl)) is not King:
                     moves.append(config.square_id[id - i])
                     break
                 else:
@@ -470,7 +518,7 @@ class Queen:
                     break
                 if config.square_id[id + i*8] not in occupied_by_any:
                     moves.append(config.square_id[id + i*8])
-                elif config.square_id[id + i*8] in occupied_by_white:
+                elif config.square_id[id + i*8] in occupied_by_white and type(get_piece(config.square_id[id + i*8], wpl)) is not King:
                     moves.append(config.square_id[id + i*8])
                     break
                 else:
@@ -480,7 +528,7 @@ class Queen:
                     break
                 if config.square_id[id - i*8] not in occupied_by_any:
                     moves.append(config.square_id[id - i*8])
-                elif config.square_id[id - i*8] in occupied_by_white:
+                elif config.square_id[id - i*8] in occupied_by_white and type(get_piece(config.square_id[id - i*8], wpl)) is not King:
                     moves.append(config.square_id[id - i*8])
                     break
                 else:
@@ -491,7 +539,7 @@ class Queen:
                     break
                 if config.square_id[id + i*9] not in occupied_by_any:
                     moves.append(config.square_id[id + i*9])
-                elif config.square_id[id + i*9] in occupied_by_black:
+                elif config.square_id[id + i*9] in occupied_by_black and type(get_piece(config.square_id[id + i*9], bpl)) is not King:
                     moves.append(config.square_id[id + i*9])
                     break
                 else:
@@ -501,7 +549,7 @@ class Queen:
                     break
                 if config.square_id[id - i*9] not in occupied_by_any:
                     moves.append(config.square_id[id - i*9])
-                elif config.square_id[id - i*9] in occupied_by_black:
+                elif config.square_id[id - i*9] in occupied_by_black and type(get_piece(config.square_id[id - i*9], bpl)) is not King:
                     moves.append(config.square_id[id - i*9])
                     break
                 else:
@@ -511,7 +559,7 @@ class Queen:
                     break
                 if config.square_id[id + i*7] not in occupied_by_any:
                     moves.append(config.square_id[id + i*7])
-                elif config.square_id[id + i*7] in occupied_by_black:
+                elif config.square_id[id + i*7] in occupied_by_black and type(get_piece(config.square_id[id + i*7], bpl)) is not King:
                     moves.append(config.square_id[id + i*7])
                     break
                 else:
@@ -521,7 +569,7 @@ class Queen:
                     break
                 if config.square_id[id - i*7] not in occupied_by_any:
                     moves.append(config.square_id[id - i*7])
-                elif config.square_id[id - i*7] in occupied_by_black:
+                elif config.square_id[id - i*7] in occupied_by_black and type(get_piece(config.square_id[id - i*7], bpl)) is not King:
                     moves.append(config.square_id[id - i*7])
                     break
                 else:
@@ -533,7 +581,7 @@ class Queen:
                     break
                 if config.square_id[id + i*9] not in occupied_by_any:
                     moves.append(config.square_id[id + i*9])
-                elif config.square_id[id + i*9] in occupied_by_white:
+                elif config.square_id[id + i*9] in occupied_by_white and type(get_piece(config.square_id[id + i*9], wpl)) is not King:
                     moves.append(config.square_id[id + i*9])
                     break
                 else:
@@ -543,7 +591,7 @@ class Queen:
                     break
                 if config.square_id[id - i*9] not in occupied_by_any:
                     moves.append(config.square_id[id - i*9])
-                elif config.square_id[id - i*9] in occupied_by_white:
+                elif config.square_id[id - i*9] in occupied_by_white and type(get_piece(config.square_id[id - i*9], wpl)) is not King:
                     moves.append(config.square_id[id - i*9])
                     break
                 else:
@@ -553,7 +601,7 @@ class Queen:
                     break
                 if config.square_id[id + i*7] not in occupied_by_any:
                     moves.append(config.square_id[id + i*7])
-                elif config.square_id[id + i*7] in occupied_by_white:
+                elif config.square_id[id + i*7] in occupied_by_white and type(get_piece(config.square_id[id + i*7], wpl)) is not King:
                     moves.append(config.square_id[id + i*7])
                     break
                 else:
@@ -563,7 +611,7 @@ class Queen:
                     break
                 if config.square_id[id - i*7] not in occupied_by_any:
                     moves.append(config.square_id[id - i*7])
-                elif config.square_id[id - i*7] in occupied_by_white:
+                elif config.square_id[id - i*7] in occupied_by_white and type(get_piece(config.square_id[id - i*7], wpl)) is not King:
                     moves.append(config.square_id[id - i*7])
                     break
                 else:
@@ -603,24 +651,94 @@ class King:
         moves = []
         if self.color == 'WHITE':
             if id > 8 and config.square_id[id - 8] not in occupied_by_white:
-                moves.append(config.square_id[id - 8])
+                if config.square_id[id - 8] in occupied_by_black and type(get_piece(config.square_id[id - 8], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 8])
             if id > 8 and (id % 8 != 1) and config.square_id[id - 9] not in occupied_by_white:
-                moves.append(config.square_id[id - 9])
+                if config.square_id[id - 9] in occupied_by_black and type(get_piece(config.square_id[id - 9], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 9])
             if id > 8 and (id % 8 != 0) and config.square_id[id - 7] not in occupied_by_white:
-                moves.append(config.square_id[id - 7])
+                if config.square_id[id - 7] in occupied_by_black and type(get_piece(config.square_id[id - 7], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 7])
             if id < 57 and config.square_id[id + 8] not in occupied_by_white:
-                moves.append(config.square_id[id + 8])
+                if config.square_id[id + 8] in occupied_by_black and type(get_piece(config.square_id[id + 8], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 8])
             if id < 57 and (id % 8 != 0) and config.square_id[id + 9] not in occupied_by_white:
-                moves.append(config.square_id[id + 9])
+                if config.square_id[id + 9] in occupied_by_black and type(get_piece(config.square_id[id + 9], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 9])
             if id < 57 and (id % 8 != 1) and config.square_id[id + 7] not in occupied_by_white:
-                moves.append(config.square_id[id + 7])
+                if config.square_id[id + 7] in occupied_by_black and type(get_piece(config.square_id[id + 7], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 7])
             if id % 8 != 1 and config.square_id[id - 1] not in occupied_by_white:
-                moves.append(config.square_id[id - 1])
+                if config.square_id[id - 1] in occupied_by_black and type(get_piece(config.square_id[id - 1], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 1])
             if id % 8 != 0 and config.square_id[id + 1] not in occupied_by_white:
-                moves.append(config.square_id[id + 1])
+                if config.square_id[id + 1] in occupied_by_black and type(get_piece(config.square_id[id + 1], bpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 1])
         if self.color == 'BLACK':
-            pass
+            if id > 8 and config.square_id[id - 8] not in occupied_by_black:
+                if config.square_id[id - 8] in occupied_by_white and type(get_piece(config.square_id[id - 8], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 8])
+            if id > 8 and (id % 8 != 1) and config.square_id[id - 9] not in occupied_by_black:
+                if config.square_id[id - 9] in occupied_by_white and type(get_piece(config.square_id[id - 9], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 9])
+            if id > 8 and (id % 8 != 0) and config.square_id[id - 7] not in occupied_by_black:
+                if config.square_id[id - 7] in occupied_by_white and type(get_piece(config.square_id[id - 7], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 7])
+            if id < 57 and config.square_id[id + 8] not in occupied_by_black:
+                if config.square_id[id + 8] in occupied_by_white and type(get_piece(config.square_id[id + 8], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 8])
+            if id < 57 and (id % 8 != 0) and config.square_id[id + 9] not in occupied_by_black:
+                if config.square_id[id + 9] in occupied_by_white and type(get_piece(config.square_id[id + 9], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 9])
+            if id < 57 and (id % 8 != 1) and config.square_id[id + 7] not in occupied_by_black:
+                if config.square_id[id + 7] in occupied_by_white and type(get_piece(config.square_id[id + 7], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 7])
+            if id % 8 != 1 and config.square_id[id - 1] not in occupied_by_black:
+                if config.square_id[id - 1] in occupied_by_white and type(get_piece(config.square_id[id - 1], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id - 1])
+            if id % 8 != 0 and config.square_id[id + 1] not in occupied_by_black:
+                if config.square_id[id + 1] in occupied_by_white and type(get_piece(config.square_id[id + 1], wpl)) is King:
+                    pass
+                else:
+                    moves.append(config.square_id[id + 1])
         return moves
+
+
+def get_piece(square, pl):
+    for p in pl:
+        if p.square == square:
+            return p
+    return None
 
 
 def initialize_pieces(disp):
